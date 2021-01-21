@@ -3,7 +3,6 @@
 mybatis 재활치료(?) 목적을 위한 프로젝트
 
 - docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name ljk1112-mysql -v /Users/jklee/datadir_mysql:/var/lib/mysql mysql:8.0.17
-- docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name ljk1112-mysql -v /Users/jklee/datadir:/var/lib/mysql mysql:8.0.17
 
 혹은
 
