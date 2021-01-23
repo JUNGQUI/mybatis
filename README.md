@@ -2,6 +2,8 @@
 
 mybatis 재활치료(?) 목적을 위한 프로젝트
 
+### setup
+
 - docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name ljk1112-mysql -v /Users/jklee/datadir_mysql:/var/lib/mysql mysql:8.0.17
 
 혹은
@@ -23,3 +25,7 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
     volumes:
       - /Users/jklee/datadir:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
 ```
+
+### [step 0, 고전적인 방법](./src/main/java/com/example/jk/mybatis/step0/README.md)
+
+### [step 1, SQL Mapper](./src/main/java/com/example/jk/mybatis/step1/README.md)
