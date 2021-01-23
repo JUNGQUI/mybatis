@@ -1,20 +1,41 @@
-package com.example.jk.mybatis.step1;
+package com.example.jk.mybatis.chapter01.step2;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class SQLMapper {
 	private Connection connection;
 	private PreparedStatement preparedStatement;
 	private ResultSet resultSet;
 
+	private String configurationResource = "resource/jdbc/config-jdbc.properties";
+	private Properties configuration = new Properties();
+
+	private void configurationAsProperties() throws IOException {
+		ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
+
+		InputStream inputStream = contextClassLoader.getResourceAsStream(configurationResource);
+
+		try {
+			configuration.load(inputStream);
+		} catch (IOException e) {
+			throw e;
+		} finally {
+			inputStream.close();
+		}
+	}
+
 	public SQLMapper () {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-		} catch (ClassNotFoundException e) {
+			configurationAsProperties();
+			Class.forName(configuration.getProperty("driver"));
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
@@ -23,9 +44,9 @@ public class SQLMapper {
 		try {
 			if (connection == null) {
 				connection = DriverManager.getConnection(
-						"jdbc:oracle:thin:@localhost:1521:XE"
-						, "mybatis"
-						, "mybatis$");
+						configuration.getProperty("url")
+						, configuration.getProperty("username")
+						, configuration.getProperty("password"));
 			}
 
 			return connection;

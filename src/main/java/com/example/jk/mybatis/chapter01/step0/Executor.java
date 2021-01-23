@@ -1,6 +1,6 @@
-package com.example.jk.mybatis.step0;
+package com.example.jk.mybatis.chapter01.step0;
 
-import com.example.jk.mybatis.domain.Shop;
+import com.example.jk.mybatis.chapter01.domain.Shop;
 import java.util.ArrayList;
 import java.util.List;
 

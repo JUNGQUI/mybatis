@@ -1,12 +1,12 @@
-package com.example.jk.mybatis.step1;
+package com.example.jk.mybatis.chapter01.step1;
 
-import com.example.jk.mybatis.domain.Shop;
+import com.example.jk.mybatis.chapter01.domain.Shop;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ModifiedApplication extends SQLMapper {
+public class Application extends SQLMapper {
 	public Shop view(List<Object> parameters) throws SQLException {
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
