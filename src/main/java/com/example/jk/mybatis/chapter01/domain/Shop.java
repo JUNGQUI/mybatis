@@ -1,4 +1,4 @@
-package com.example.jk.mybatis.domain;
+package com.example.jk.mybatis.chapter01.domain;
 
 import java.io.Serializable;
 import lombok.Data;
