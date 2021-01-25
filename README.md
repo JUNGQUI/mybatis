@@ -26,6 +26,10 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
       - /Users/jklee/datadir:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
 ```
 
+## Chapter1 : Mybatis 소개
+
+---
+
 ### [step 0, 고전적인 방법](./src/main/java/com/example/jk/mybatis/step0/README.md)
 
 ### [step 1, SQL Mapper](./src/main/java/com/example/jk/mybatis/step1/README.md)
@@ -33,3 +37,8 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
 ### [step 2, JDBC configuration](./src/main/java/com/example/jk/mybatis/step2/README.md)
 
 ### [step 3, Query Properties](./src/main/java/com/example/jk/mybatis/step3/README.md)
+
+---
+
+## Chapter2 : start Mybatis
+
