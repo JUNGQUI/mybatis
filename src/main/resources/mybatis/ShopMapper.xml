@@ -5,6 +5,11 @@
 <mapper namespace="com.example.jk.mybatis.chapter02.ShopMapper">
   <select id="list" resultType="java.util.Map">
     SELECT SHOP_NO, SHOP_NAME, SHOP_LOCATION, SHOP_STATUS
-    FROM SHOP
+    FROM private_schema.SHOP
   </select>
+
+  <insert id="insert" parameterType="com.example.jk.mybatis.chapter03.domain.Shop">
+    INSERT INTO private_schema.SHOP (SHOP_NAME, SHOP_LOCATION, SHOP_STATUS)
+    VALUES (#{shopName}, #{shopLocation}, #{shopStatus})
+  </insert>
 </mapper>
