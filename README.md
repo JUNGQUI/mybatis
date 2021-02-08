@@ -1,6 +1,6 @@
 # mybatis
 
-mybatis 재활치료(?) 목적을 위한 프로젝트
+mybatis 재상기 및 숙달 목적을 위한 프로젝트
 
 ### setup
 
