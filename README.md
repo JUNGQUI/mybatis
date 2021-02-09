@@ -44,3 +44,8 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
 
 ### [Mapper, Config, Interface](./src/main/java/com/example/jk/mybatis/chapter02/README.md)
 
+---
+
+## Chapter3 : mybatis programming
+
+### [XML 설정](./src/main/java/com/example/jk/mybatis/chapter03/README.md)
