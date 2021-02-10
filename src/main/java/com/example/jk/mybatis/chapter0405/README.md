@@ -28,7 +28,7 @@ xml 심화
     <collection property="innerClassList" resultMap="InnerClass"/>
   </resultMap>
 
-  <select id="findByEmpIdAndPeriod" resultMap="DailyWorkingTime">
+  <select id="findByEmpIdAndPeriod" resultMap="WrapperClass">
     ...
   </select>
 
