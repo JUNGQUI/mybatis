@@ -3,13 +3,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.jk.mybatis.chapter02.ShopMapper">
-  <select id="list" resultType="java.util.Map">
+  <select id="list" resultMap="shopResultMap">
     SELECT SHOP_NO, SHOP_NAME, SHOP_LOCATION, SHOP_STATUS
     FROM private_schema.SHOP
   </select>
 
-  <insert id="insert" parameterType="com.example.jk.mybatis.chapter03.domain.Shop">
+  <insert id="insert" parameterType="com.example.jk.mybatis.chapter03.domain.Shop"
+  useGeneratedKeys="true" keyProperty="shopNo">
     INSERT INTO private_schema.SHOP (SHOP_NAME, SHOP_LOCATION, SHOP_STATUS)
     VALUES (#{shopName}, #{shopLocation}, #{shopStatus})
   </insert>
+
+  <resultMap id="shopResultMap" type="com.example.jk.mybatis.chapter03.domain.Shop">
+    <id column="SHOP_NO" property="shopNo"/>
+    <result column="SHOP_NAME" property="shopName"/>
+    <result column="SHOP_LOCATION" property="shopLocation"/>
+    <result column="SHOP_STATUS" property="shopStatus"/>
+  </resultMap>
 </mapper>
