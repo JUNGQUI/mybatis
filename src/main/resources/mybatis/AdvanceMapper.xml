@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.jk.mybatis.chapter0405.AdvanceMapper">
+  <resultMap id="WrapperClass" type="com.example.jk.mybatis.chapter0405.domain.WrapperClass">
+    <id column="CLASS_ID" property="id"/>
+    <result column="CLASS_NAME" property="name"/>
+    <collection property="innerClassList" resultMap="InnerClass"/>
+  </resultMap>
+
+  <resultMap id="InnerClass" type="com.example.jk.mybatis.chapter0405.domain.InnerClass">
+    <result column="INNER_ID" property="innerId" />
+    <result column="INNER_ID" property="innerName" />
+    <association property="innerJoinClass" resultMap="InnerJoinClass" />
+  </resultMap>
+
+  <resultMap id="InnerJoinClass" type="com.example.jk.mybatis.chapter0405.domain.InnerJoinClass">
+    <result column="INNER_JOIN_ID" property="innerJoinId" />
+    <result column="INNER_JOIN_NAME" property="innerJoinName" />
+  </resultMap>
+
+  <select id="findAllByWrapperId" resultMap="WrapperClass">
+    SELECT *
+    FROM WRAPPER_CLASS
+    WHERE WRAPPER_ID = #{wrapperId}
+  </select>
+
+  <select id="findAll" resultMap="WrapperClass" parameterType="com.example.jk.mybatis.chapter0405.WrapperClassFilter">
+    SELECT *
+    FROM	WRAPPER_CLASS
+    <include refid="WrapperClassWhere" />
+  </select>
+
+  <sql id="WrapperClassWhere">
+    <where>
+      <if test="null != wrapperId and '' != wrapperId">
+        AND WRAPPER_ID = #{wrapperId}
+      </if>
+      <if test="null != wrapperId and '' != wrapperId">
+        AND INNER_ID = #{innerId}
+      </if>
+      <if test="null != wrapperId and '' != wrapperId">
+        AND INNER_JOIN_ID = #{innerJoinId}
+      </if>
+
+      <if test="null != wrapperName and '' != wrapperName">
+        AND WRAPPER_NAME LIKE CONCAT('%',#{wrapperName},'%')
+      </if>
+      <if test="null != innerName and '' != innerName">
+        AND INNER_NAME LIKE CONCAT('%',#{innerName},'%')
+      </if>
+      <if test="null != innerJoinName and '' != innerJoinName">
+        AND INNER_JOIN_NAME LIKE CONCAT('%',#{innerJoinName},'%')
+      </if>
+    </where>
+  </sql>
+
+</mapper>
