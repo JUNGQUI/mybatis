@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdvanceMapper {
   public List<WrapperClass> findAllByWrapperId(@Param("wrapperId") String id);
+  public List<WrapperClass> findAll(WrapperClassFilter wrapperClassFilter);
 }
